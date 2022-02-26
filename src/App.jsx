@@ -5,6 +5,7 @@ import { Container } from "./components/styles/Container.styled";
 import GlobalStyles from "./components/styles/Global";
 import { MyTheme } from "./components/styles/MyTheme.styled";
 import Home from "./Home";
+import { AppRoutes } from "./Routes";
 
 const theme = MyTheme;
 
@@ -13,11 +14,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
-        <Header />
-        <Container>
-          <Home />
-        </Container>
-        <Footer />
+        <AppRoutes />
       </>
     </ThemeProvider>
   );

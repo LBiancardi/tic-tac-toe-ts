@@ -1,11 +1,13 @@
 import React from "react";
-import { Flex } from "./styles/Flex.styled";
+import { Link } from "react-router-dom";
 import { StyledHeader } from "./styles/Header.styled";
 
 export default function Header() {
   return (
     <StyledHeader>
-      <img src="./src/assets/sombraLG.png" alt="logo" />
+      <Link to="/">
+        <img src="./src/assets/sombraLG.png" alt="logo" />
+      </Link>
     </StyledHeader>
   );
 }

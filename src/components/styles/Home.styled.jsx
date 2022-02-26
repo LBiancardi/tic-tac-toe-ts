@@ -17,6 +17,7 @@ export const StyledHome = styled.main`
 
   button {
     font-size: 1.2rem;
+    width: 100%;
   }
 `;
 
