@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./components/styles/Button";
+import { HiLockClosed } from "react-icons/hi";
 import { HomeFlex, StyledHome } from "./components/styles/Home.styled";
 
 export default function Home() {
@@ -14,7 +15,10 @@ export default function Home() {
           </Button>
         </Link>
         <Link to="/crazy">
-          <Button bg={"#b10000c5"}>Crazy</Button>
+          <Button bg={"#b10000c5"} /* disabled style={{ color: "red" }} */>
+            Crazy
+            {/* <HiLockClosed /> */}
+          </Button>
         </Link>
       </HomeFlex>
     </StyledHome>

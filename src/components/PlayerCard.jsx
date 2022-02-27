@@ -5,12 +5,17 @@ export default function PlayerCard({
   img = "player1.png",
   player = "1",
   placeholder = "X",
+  fontColor = "",
+  isActive = true,
 }) {
   return (
-    <StyledPlayerCard>
+    <StyledPlayerCard
+      className={isActive ? "active" : ""}
+      fontColor={fontColor}
+    >
       <img src={`./src/assets/${img}`} />
       <p>{player}</p>
-      <p>{placeholder}</p>
+      <span>{placeholder}</span>
     </StyledPlayerCard>
   );
 }
