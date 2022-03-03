@@ -1,6 +1,9 @@
 import { useState } from "react";
 import PlayerCard from "./components/PlayerCard";
+import BoardSpace from "./components/styles/BoardSpace";
 import { StyledClassicMode } from "./components/styles/ClassicMode.styled";
+import { checkWinner } from "./helpers/checkWinner";
+import { handleBoardChange } from "./helpers/handleBoardChange";
 
 const player1 = {
   img: "player1.png",
@@ -18,20 +21,34 @@ const player2 = {
 
 const CrazyMode = () => {
   const [playerTurn, setPlayerTurn] = useState(player1.turn);
-  const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
+  const [spaces, setSpace] = useState(["", "", "", "", "", "", "", "", ""]);
+  const [nextMove, setNextMove] = useState(player1.placeholder);
   const [isTheGameOver, setIsTheGameOver] = useState(false);
+
+  const handleSwitchTurns = (
+    nextMove,
+    placeholder1,
+    placeholder2,
+    playerTurn
+  ) => {
+    nextMove !== placeholder1
+      ? setNextMove(placeholder1)
+      : setNextMove(placeholder2);
+    setPlayerTurn(!playerTurn);
+  };
 
   return (
     <>
-      <h1
+      <div
         style={{
           display: "flex",
-          justifyContent: "center",
-          marginBottom: "2rem",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
-        Crazy mode
-      </h1>
+        <h1 style={{ marginBottom: "0" }}>Crazy mode</h1>
+        <p>Exactly the same thing but on a different Route</p>
+      </div>
       <StyledClassicMode>
         <PlayerCard
           fontColor="#e6ff09"
@@ -48,9 +65,36 @@ const CrazyMode = () => {
           isActive={!playerTurn}
         />
       </StyledClassicMode>
-      <button onClick={() => setPlayerTurn(!playerTurn)}>
-        Switch players turn
-      </button>
+      <div
+        style={{
+          borderRadius: "10px",
+          backgroundColor: "rgba(0,0,0,0.5)",
+          display: "flex",
+          flexWrap: "wrap",
+          rowGap: "0.25rem",
+          justifyContent: "space-evenly",
+          padding: "0.45rem",
+          marginTop: "3rem",
+        }}
+      >
+        {spaces.map((space, i) => (
+          <BoardSpace
+            onClick={(e) => {
+              e.target.innerText = nextMove;
+              setSpace(handleBoardChange(spaces, i, nextMove));
+              handleSwitchTurns(
+                nextMove,
+                player1.placeholder,
+                player2.placeholder,
+                playerTurn
+              );
+              setSpace(checkWinner(spaces, nextMove));
+            }}
+          >
+            {spaces[i]}
+          </BoardSpace>
+        ))}
+      </div>
     </>
   );
 };
