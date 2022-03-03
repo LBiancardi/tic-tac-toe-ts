@@ -9,7 +9,8 @@ export const checkWinner = (arr, player) => {
     (arr[0] === arr[4] && arr[4] === arr[8] && arr[8] !== "") ||
     (arr[2] === arr[4] && arr[4] === arr[6] && arr[6] !== "")
   ) {
-    alert(`${player} WINS !`);
+    console.log(`${player} WINS !`);
+    return true;
   }
-  return arr;
+  return false;
 };
