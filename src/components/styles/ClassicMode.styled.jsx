@@ -10,8 +10,6 @@ export const StyledClassicMode = styled.div`
 
 export const StyledPlayerCard = styled.div`
   align-items: center;
-  /* border: 2px solid white;
-  border-radius: 10px; */
   background-color: #202020a2;
   display: flex;
   flex-direction: column;

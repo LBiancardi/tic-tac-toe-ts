@@ -6,6 +6,7 @@ export default function PlayerCard({
   player = "1",
   placeholder = "X",
   fontColor = "",
+  score = 0,
   isActive = true,
 }) {
   return (
@@ -16,6 +17,9 @@ export default function PlayerCard({
       <img src={`./src/assets/${img}`} />
       <p>{player}</p>
       <span>{placeholder}</span>
+      <div style={{ display: "flex", flexWrap: "nowrap" }}>
+        <p>Score: {score}</p>
+      </div>
     </StyledPlayerCard>
   );
 }
