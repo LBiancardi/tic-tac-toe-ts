@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PlayerCard from "./components/PlayerCard";
 import BoardSpace from "./components/styles/BoardSpace";
 import { StyledClassicMode } from "./components/styles/ClassicMode.styled";
+import { checkTie } from "./helpers/checkTie";
 import { checkWinner } from "./helpers/checkWinner";
 import { handleBoardChange } from "./helpers/handleBoardChange";
 import { resetBoard } from "./helpers/resetBoard";
@@ -27,20 +28,24 @@ const ClassicMode = () => {
   const [spaces, setSpace] = useState(["", "", "", "", "", "", "", "", ""]);
   const [nextMove, setNextMove] = useState(player1.placeholder);
   const [isTheGameOver, setIsTheGameOver] = useState(false);
+  const [gameTied, setGameTied] = useState(false);
 
   useEffect(() => {
     (player1.score = 0), (player2.score = 0);
   }, []);
 
   useEffect(() => {
-    setSpace(resetBoard);
     if (isTheGameOver) {
       !playerOneTurn
         ? (alert(`${player1.placeholder} WINS`), (player1.score += 1))
         : (alert(`${player2.placeholder} WINS`), (player2.score += 1));
+    } else if (gameTied) {
+      alert("Game Tied!");
     }
+    setSpace(resetBoard);
+    setGameTied(false);
     setIsTheGameOver(false);
-  }, [isTheGameOver]);
+  }, [isTheGameOver, gameTied]);
 
   const handleSwitchTurns = (
     nextMove,
@@ -113,6 +118,7 @@ const ClassicMode = () => {
                   ))
                 : alert("Please select an empty space");
               setIsTheGameOver(checkWinner(spaces, nextMove));
+              setGameTied(checkTie(spaces));
             }}
           >
             {spaces[i]}

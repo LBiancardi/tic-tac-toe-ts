@@ -20,7 +20,6 @@ export default function Home() {
             bg={"#b10000c5"} /* disabled style={{ color: "red" }} */
           >
             Crazy
-            {/* <HiLockClosed /> */}
           </Button>
         </Link>
       </HomeFlex>
