@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <StyledHeader>
       <Link to="/">
-        <img src="./src/assets/sombraLG.png" alt="logo" />
+        <img src="/sombraLG.png" alt="logo" />
       </Link>
       <nav>
         <Link to="/">

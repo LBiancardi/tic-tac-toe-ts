@@ -64,7 +64,7 @@ const ClassicMode = () => {
         }}
       >
         <img
-          src="./src/assets/classicMode.png"
+          src="/classicMode.png"
           style={{ marginBottom: "1.5rem", minWidth: "250px", width: "30%" }}
         />
       </div>

@@ -14,7 +14,7 @@ export default function PlayerCard({
       className={isActive ? "active" : ""}
       fontColor={fontColor}
     >
-      <img src={`./src/assets/${img}`} />
+      <img src={`/${img}`} />
       <p>{player}</p>
       <span>{placeholder}</span>
       <div style={{ display: "flex", flexWrap: "nowrap" }}>

@@ -64,7 +64,7 @@ const ClassicMode = () => {
         }}
       >
         <img
-          src="./src/assets/crazyMode.png"
+          src="/crazyMode.png"
           style={{ marginBottom: "0", minWidth: "250px", width: "30%" }}
         />
         <p>Exactly the same thing but on a differente Route.</p>
