@@ -15,7 +15,10 @@ export default function Home() {
           </Button>
         </Link>
         <Link to="/crazy">
-          <Button bg={"#b10000c5"} /* disabled style={{ color: "red" }} */>
+          <Button
+            style={{ marginBottom: "7rem" }}
+            bg={"#b10000c5"} /* disabled style={{ color: "red" }} */
+          >
             Crazy
             {/* <HiLockClosed /> */}
           </Button>

@@ -17,17 +17,17 @@ export const StyledHeader = styled.header`
   }
 
   nav a {
-    color: black;
+    color: ${({ theme }) => theme.colors.bodyGradient1 || "#fefefe"};
     font-size: 1.3rem;
     font-weight: bolder;
     text-decoration: none;
     transition: 0.5s;
-    width: 100%;
+    /* width: 100%; */
   }
 
   nav a:hover {
-    text-decoration: underline;
-    opacity: 70%;
+    /* color: ${({ theme }) => theme.colors.bodyGradient2 || "#fefefe"}; */
+    opacity: 60%;
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     align-items: center;
@@ -35,8 +35,8 @@ export const StyledHeader = styled.header`
     flex-direction: column;
 
     img {
-      margin: 0 20%;
-      width: 60%;
+      margin: 0 35%;
+      width: 30%;
     }
 
     nav {

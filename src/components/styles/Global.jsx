@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
   theme.colors.bodyGradient3} 100%);
     font-family: 'Poppins', sans-serif;
     font-size: 1.15em;
-    height: 100vh;
+    /* height: 100vh; */
     margin: 0;
   }
 

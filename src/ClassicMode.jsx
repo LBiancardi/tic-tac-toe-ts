@@ -29,6 +29,10 @@ const ClassicMode = () => {
   const [isTheGameOver, setIsTheGameOver] = useState(false);
 
   useEffect(() => {
+    (player1.score = 0), (player2.score = 0);
+  }, []);
+
+  useEffect(() => {
     setSpace(resetBoard);
     if (isTheGameOver) {
       !playerOneTurn
@@ -59,7 +63,10 @@ const ClassicMode = () => {
           alignItems: "center",
         }}
       >
-        <h1 style={{ marginBottom: "2rem" }}>Classic mode</h1>
+        <img
+          src="./src/assets/classicMode.png"
+          style={{ marginBottom: "1.5rem", minWidth: "250px", width: "30%" }}
+        />
       </div>
       <StyledClassicMode>
         <PlayerCard
